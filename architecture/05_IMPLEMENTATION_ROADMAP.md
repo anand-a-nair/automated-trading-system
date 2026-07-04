@@ -60,6 +60,23 @@ Structured around the four stages from [VISION.md](01_VISION.md): Backtest → P
 
 ---
 
+## Command reference
+
+Throughout: `python -m src.trading <command>` with the module structure under `src/`:
+
+```bash
+python -m src.trading backtest \
+  --symbol RELIANCE.NS \
+  --start 2023-01-01 \
+  --end 2024-12-31 \
+  --cash 100000 \
+  --fast 20 --slow 50
+```
+
+Flags: `--cash` (starting equity, default 100k), `--fast` and `--slow` (SMA windows for the example strategy).
+
+---
+
 ## Phase 5: US Equities (later, lowest priority until NSE feels boring)
 
 Full spec in [07_SCALING_ROADMAP.md](07_SCALING_ROADMAP.md) Part 2. Only start once live NSE trading has been stable for a while and you're looking for the next thing to learn/build:

@@ -9,7 +9,7 @@ US equities, forex, and an eventual distributed-system architecture are all real
 **Stage 1 (backtesting) — skeleton working end-to-end.** The core modules (portfolio, risk checks, simulated execution, backtest engine + metrics) are implemented and tested; the broker adapter and live-data pieces are interfaces/stubs until Stage 2. A real backtest runs today:
 
 ```
-$ python -m trading backtest --symbol RELIANCE.NS --start 2023-01-01 --end 2024-12-31
+$ python -m src.trading backtest --symbol RELIANCE.NS --start 2023-01-01 --end 2024-12-31
 sma_20_50 on RELIANCE.NS: return +5.79%, max drawdown 1.97%, sharpe 1.01, win rate 50% over 4 round trips
 ```
 
@@ -18,8 +18,8 @@ sma_20_50 on RELIANCE.NS: return +5.79%, max drawdown 1.97%, sharpe 1.01, win ra
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-pytest                                        # 27 tests, no network needed
-python -m trading backtest --symbol INFY.NS   # real backtest (fetches + caches Yahoo data)
+pytest                                              # 27 tests, no network needed
+python -m src.trading backtest --symbol INFY.NS    # real backtest (fetches + caches Yahoo data)
 ```
 
 Or with Docker: `cp .env.example .env`, then `docker compose up --build`.

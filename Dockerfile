@@ -7,4 +7,4 @@ COPY src ./src
 RUN pip install --no-cache-dir .
 
 # data/ (bar cache) and the SQLite file live on a volume — see docker-compose.yml
-CMD ["python", "-m", "trading", "backtest", "--symbol", "RELIANCE.NS"]
+CMD ["python", "-m", "src.trading", "backtest", "--symbol", "RELIANCE.NS"]

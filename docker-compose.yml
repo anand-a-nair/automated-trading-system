@@ -1,0 +1,16 @@
+# Same compose file runs on the laptop today and the VPS later
+# (architecture/02_REQUIREMENTS.md R4.1).
+services:
+  app:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data      # cached market data
+      - db-data:/app/state    # SQLite database
+    environment:
+      DATABASE_URL: sqlite:////app/state/trading.db
+    restart: unless-stopped
+
+volumes:
+  db-data:

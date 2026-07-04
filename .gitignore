@@ -1,0 +1,27 @@
+# Secrets — never commit broker credentials or bot tokens
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Local data & state
+data/cache/
+results/
+*.db
+*.sqlite3
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+.claude/settings.local.json
